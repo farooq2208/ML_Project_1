@@ -1,11 +1,11 @@
-# 😴 Sleep Health Predictor
+# Sleep Health Predictor
 
 A machine-learning–powered web application that predicts sleep disorders from
 everyday lifestyle and health metrics.
 
 ---
 
-## 📖 Project Description
+## Project Description
 
 Poor sleep is linked to dozens of serious health conditions, yet millions of
 people are unaware they may have a diagnosable sleep disorder.  
@@ -16,7 +16,7 @@ simple inputs such as age, occupation, stress level, and blood pressure.
 
 ---
 
-## 🤖 About the Machine-Learning Model
+## About the Machine-Learning Model
 
 | Property | Detail |
 |---|---|
@@ -34,22 +34,22 @@ manual preprocessing.
 
 ---
 
-## ✨ Application Features
+## Application Features
 
-- 🎛️ **Intuitive input form** — sliders, dropdowns, and number fields with
+- **Intuitive input form** — sliders, dropdowns, and number fields with
   helpful tooltips for every parameter.
-- ✅ **Input validation** — catches impossible values (e.g. diastolic ≥ systolic)
+- **Input validation** — catches impossible values (e.g. diastolic ≥ systolic)
   before the model is called.
-- 📊 **Confidence breakdown** — colour-coded probability bars for each class.
-- 🔍 **Input summary expander** — review submitted values alongside the result.
-- 📌 **Sidebar** — project overview, how-to-use instructions, and model details
+- **Confidence breakdown** — colour-coded probability bars for each class.
+- **Input summary expander** — review submitted values alongside the result.
+- **Sidebar** — project overview, how-to-use instructions, and model details
   always visible.
-- 🚀 **Production-ready** — cached model loading, clean error handling, and zero
+- **Production-ready** — cached model loading, clean error handling, and zero
   external API calls.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 sleep-health-predictor/
@@ -66,9 +66,9 @@ sleep-health-predictor/
 > runtime. Only `app.py`, `sleep_disorder_model.pkl`, and `requirements.txt`
 > are needed for deployment.
 
----
+--
 
-## ⚙️ Installation & Local Setup
+## Installation & Local Setup
 
 ### Prerequisites
 
@@ -119,7 +119,7 @@ Streamlit will open a browser tab at `http://localhost:8501` automatically.
 
 ---
 
-## 🖱️ How to Use the Application
+## How to Use the Application
 
 1. **Fill in the form** — the three-column panel covers Demographics, Sleep &
    Activity, and Health Vitals.
@@ -132,7 +132,7 @@ Streamlit will open a browser tab at `http://localhost:8501` automatically.
 
 ---
 
-## ⚠️ Assumptions & Limitations
+## Assumptions & Limitations
 
 | Item | Detail |
 |---|---|
@@ -145,7 +145,7 @@ Streamlit will open a browser tab at `http://localhost:8501` automatically.
 
 ---
 
-## 🛠️ Technologies & Libraries
+## Technologies & Libraries
 
 | Library | Version | Purpose |
 |---|---|---|
@@ -159,13 +159,13 @@ Streamlit will open a browser tab at `http://localhost:8501` automatically.
 
 ---
 
-## 🌐 Live Demo
+## Live Demo
 
 **Live Demo: https://sleep-health-predictor2208.streamlit.app/**
 
 ---
 
-## 🚀 Deploying to Streamlit Community Cloud
+## Deploying to Streamlit Community Cloud
 
 1. Push your project folder (with `app.py`, `sleep_disorder_model.pkl`, and
    `requirements.txt`) to a **public GitHub repository**.
@@ -177,5 +177,3 @@ Streamlit will open a browser tab at `http://localhost:8501` automatically.
 5. Once live, copy the URL and update the **Live Demo** link above.
 
 ---
-
-*Made with ❤️ using Streamlit and XGBoost.*
