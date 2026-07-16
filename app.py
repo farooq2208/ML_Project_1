@@ -434,8 +434,28 @@ def main():
             for err in errors:
                 st.error(f"⚠️ {err}")
         else:
-            # Build a single-row DataFrame (same column order as training)
-            input_df = pd.DataFrame([inputs])
+            # Build a single-row DataFrame with explicit dtypes so that
+            # sklearn's ColumnTransformer always receives plain numpy-backed
+            # columns (object for strings, float64/int64 for numerics).
+            # Relying on pd.DataFrame([dict]) on newer pandas + PyArrow
+            # backends can produce StringDtype columns that confuse the
+            # np.issubdtype check inside the pickled ColumnTransformer.
+            input_df = pd.DataFrame(
+                {
+                    "gender":                  pd.array([str(inputs["gender"])],             dtype="object"),
+                    "age":                     pd.array([int(inputs["age"])],                dtype="int64"),
+                    "occupation":              pd.array([str(inputs["occupation"])],          dtype="object"),
+                    "sleep_duration":          pd.array([float(inputs["sleep_duration"])],   dtype="float64"),
+                    "quality_of_sleep":        pd.array([int(inputs["quality_of_sleep"])],   dtype="int64"),
+                    "physical_activity_level": pd.array([int(inputs["physical_activity_level"])], dtype="int64"),
+                    "stress_level":            pd.array([int(inputs["stress_level"])],       dtype="int64"),
+                    "BMI_category":            pd.array([str(inputs["BMI_category"])],       dtype="object"),
+                    "heart_rate":              pd.array([int(inputs["heart_rate"])],         dtype="int64"),
+                    "daily_steps":             pd.array([int(inputs["daily_steps"])],        dtype="int64"),
+                    "systolic":                pd.array([int(inputs["systolic"])],           dtype="int64"),
+                    "dystolic":                pd.array([int(inputs["dystolic"])],           dtype="int64"),
+                }
+            )
 
             with st.spinner("Analysing your data…"):
                 prediction_idx = int(model.predict(input_df)[0])
