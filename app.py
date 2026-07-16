@@ -441,21 +441,21 @@ def main():
             # backends can produce StringDtype columns that confuse the
             # np.issubdtype check inside the pickled ColumnTransformer.
             input_df = pd.DataFrame(
-                {
-                    "gender":[gender],
-                    "age":[age],
-                    "occupation":[occupation],
-                    "sleep_duration":[sleep_duration],
-                    "quality_of_sleep":[quality_of_sleep],
-                    "physical_activity_level":[physical_activity_level],
-                    "stress_level":[stress_level],
-                    "BMI_category":[bmi_category],
-                    "heart_rate":[heart_rate],
-                    "daily_steps":[daily_steps],
-                    "systolic":[systolic],
-                    "dystolic":[dystolic],
-                }
-            )
+    {
+        "gender": [inputs["gender"]],
+        "age": [inputs["age"]],
+        "occupation": [inputs["occupation"]],
+        "sleep_duration": [inputs["sleep_duration"]],
+        "quality_of_sleep": [inputs["quality_of_sleep"]],
+        "physical_activity_level": [inputs["physical_activity_level"]],
+        "stress_level": [inputs["stress_level"]],
+        "BMI_category": [inputs["BMI_category"]],
+        "heart_rate": [inputs["heart_rate"]],
+        "daily_steps": [inputs["daily_steps"]],
+        "systolic": [inputs["systolic"]],
+        "dystolic": [inputs["dystolic"]],
+    }
+)
 
             with st.spinner("Analysing your data…"):
                 prediction_idx = int(model.predict(input_df)[0])
