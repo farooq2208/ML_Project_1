@@ -13,6 +13,7 @@ import streamlit as st
 # ── Page configuration ──────────────────────────────────────────────────────
 st.set_page_config(
     page_title="Sleep Health Predictor",
+    page_icon="😴",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -25,6 +26,7 @@ LABEL_MAP = {0: "Sleep Apnea", 1: "Insomnia", 2: "Healthy"}
 
 RESULT_CONFIG = {
     "Healthy": {
+        "emoji": "✅",
         "color": "#2e7d32",
         "bg": "#e8f5e9",
         "border": "#a5d6a7",
@@ -35,6 +37,7 @@ RESULT_CONFIG = {
         ),
     },
     "Insomnia": {
+        "emoji": "😟",
         "color": "#e65100",
         "bg": "#fff3e0",
         "border": "#ffcc80",
@@ -46,6 +49,7 @@ RESULT_CONFIG = {
         ),
     },
     "Sleep Apnea": {
+        "emoji": "😴",
         "color": "#6a1b9a",
         "bg": "#f3e5f5",
         "border": "#ce93d8",
@@ -83,7 +87,7 @@ def load_model():
         return joblib.load(MODEL_PATH)
     except FileNotFoundError:
         st.error(
-            f" Model file `{MODEL_PATH}` not found.  "
+            f"❌ Model file `{MODEL_PATH}` not found.  "
             "Make sure it is in the same directory as `app.py`."
         )
         st.stop()
@@ -114,9 +118,9 @@ def render_sidebar():
             ### Prediction Classes
             | Class | Description |
             |-------|-------------|
-            | Healthy | No sleep disorder detected |
-            | Insomnia | Difficulty falling/staying asleep |
-            | Sleep Apnea | Repeated breathing interruptions |
+            | ✅ Healthy | No sleep disorder detected |
+            | 😟 Insomnia | Difficulty falling/staying asleep |
+            | 😴 Sleep Apnea | Repeated breathing interruptions |
 
             ### Disclaimer
             > This tool is for **informational purposes only** and does not
@@ -137,13 +141,13 @@ def render_sidebar():
         )
 
         st.markdown("---")
-        st.caption("Built with [Streamlit](https://streamlit.io)")
+        st.caption("Built with [Streamlit](https://streamlit.io) 🎈")
 
 
 # ── Input form ───────────────────────────────────────────────────────────────
 def render_input_form():
     """Render the user-input form and return a dict of raw values."""
-    st.header("Enter Your Health & Lifestyle Details")
+    st.header("📋 Enter Your Health & Lifestyle Details")
     st.markdown(
         "Complete all fields below for the most accurate prediction. "
         "Hover over the **ℹ** icons for field-level guidance."
@@ -153,7 +157,7 @@ def render_input_form():
 
     # ── Column 1 : Demographics ──────────────────────────────────────────────
     with col1:
-        st.subheader("Demographics")
+        st.subheader("👤 Demographics")
 
         gender = st.selectbox(
             "Gender",
@@ -188,7 +192,7 @@ def render_input_form():
 
     # ── Column 2 : Sleep & Activity ──────────────────────────────────────────
     with col2:
-        st.subheader("Sleep & Activity")
+        st.subheader("🛌 Sleep & Activity")
 
         sleep_duration = st.slider(
             "Sleep Duration (hours/night)",
@@ -228,7 +232,7 @@ def render_input_form():
 
     # ── Column 3 : Vitals ────────────────────────────────────────────────────
     with col3:
-        st.subheader("Health Vitals")
+        st.subheader("❤️ Health Vitals")
 
         stress_level = st.slider(
             "Stress Level (1–10)",
@@ -316,7 +320,7 @@ def render_result(prediction_label: str, probabilities: np.ndarray):
             margin-top: 16px;
         ">
             <h2 style="color: {cfg['color']}; margin: 0 0 8px 0;">
-                 Prediction: {prediction_label}
+                {cfg['emoji']} Prediction: {prediction_label}
             </h2>
             <p style="color: #333; font-size: 1rem; margin: 0;">
                 {cfg['message']}
@@ -329,7 +333,7 @@ def render_result(prediction_label: str, probabilities: np.ndarray):
     st.markdown("---")
 
     # ── Confidence breakdown ─────────────────────────────────────────────────
-    st.subheader("Prediction Confidence")
+    st.subheader("📊 Prediction Confidence")
     st.caption(
         "The bars below show how confident the model is for each class. "
         "Higher is more likely."
@@ -350,7 +354,7 @@ def render_result(prediction_label: str, probabilities: np.ndarray):
             f"""
             <div style="margin-bottom: 12px;">
                 <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
-                    <span style="font-weight:600;">{RESULT_CONFIG[label] {label}</span>
+                    <span style="font-weight:600;">{RESULT_CONFIG[label]['emoji']} {label}</span>
                     <span style="font-weight:700; color:{bar_color};">{prob * 100:.1f}%</span>
                 </div>
                 <div style="background:#e0e0e0; border-radius:8px; height:18px; overflow:hidden;">
@@ -368,7 +372,7 @@ def render_result(prediction_label: str, probabilities: np.ndarray):
         )
 
     # ── Input summary ─────────────────────────────────────────────────────────
-    with st.expander("View your submitted inputs"):
+    with st.expander("🔍 View your submitted inputs"):
         st.markdown("These are the values used for prediction:")
         # reconstruct from session state
         inputs = st.session_state.get("last_inputs", {})
@@ -396,7 +400,7 @@ def main():
             margin-bottom: 28px;
         ">
             <h1 style="color: white; margin: 0 0 8px 0; font-size: 2.2rem;">
-                Sleep Health Predictor
+                😴 Sleep Health Predictor
             </h1>
             <p style="color: #c5cae9; font-size: 1.05rem; margin: 0;">
                 Enter your lifestyle and health details to receive an AI-powered
@@ -418,7 +422,7 @@ def main():
     col_btn, _ = st.columns([1, 3])
     with col_btn:
         predict_clicked = st.button(
-            "Predict Sleep Health",
+            "🔍 Predict Sleep Health",
             type="primary",
             use_container_width=True,
         )
@@ -428,7 +432,7 @@ def main():
 
         if errors:
             for err in errors:
-                st.error(f"{err}")
+                st.error(f"⚠️ {err}")
         else:
             # Build a single-row DataFrame with explicit dtypes so that
             # sklearn's ColumnTransformer always receives plain numpy-backed
