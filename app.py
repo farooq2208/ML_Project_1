@@ -442,18 +442,18 @@ def main():
             # np.issubdtype check inside the pickled ColumnTransformer.
             input_df = pd.DataFrame(
                 {
-                    "gender":                  [gender],
-                    "age":                     [age],
-                    "occupation":              [occupation],
-                    "sleep_duration":          [sleep_duration],
-                    "quality_of_sleep":        [quality_of_sleep],
-                    "physical_activity_level": [physical_activity_level],
-                    "stress_level":            [stress_level],
-                    "BMI_category":            [bmi_category],
-                    "heart_rate":              [heart_rate],
-                    "daily_steps":             [daily_steps],
-                    "systolic":                [systolic],
-                    "dystolic":                [dystolic],
+                    "gender":[gender],
+                    "age":[age],
+                    "occupation":[occupation],
+                    "sleep_duration":[sleep_duration],
+                    "quality_of_sleep":[quality_of_sleep],
+                    "physical_activity_level":[physical_activity_level],
+                    "stress_level":[stress_level],
+                    "BMI_category":[bmi_category],
+                    "heart_rate":[heart_rate],
+                    "daily_steps":[daily_steps],
+                    "systolic":[systolic],
+                    "dystolic":[dystolic],
                 }
             )
 
