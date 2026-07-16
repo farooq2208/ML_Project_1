@@ -350,7 +350,7 @@ def render_result(prediction_label: str, probabilities: np.ndarray):
             f"""
             <div style="margin-bottom: 12px;">
                 <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
-                    <span style="font-weight:600;">{RESULT_CONFIG[label]['emoji']} {label}</span>
+                    <span style="font-weight:600;">{RESULT_CONFIG[label] {label}</span>
                     <span style="font-weight:700; color:{bar_color};">{prob * 100:.1f}%</span>
                 </div>
                 <div style="background:#e0e0e0; border-radius:8px; height:18px; overflow:hidden;">
