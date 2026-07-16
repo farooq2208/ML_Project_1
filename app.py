@@ -149,8 +149,7 @@ def render_input_form():
     """Render the user-input form and return a dict of raw values."""
     st.header(" Enter Your Health & Lifestyle Details")
     st.markdown(
-        "Complete all fields below for the most accurate prediction. "
-        "Hover over the **ℹ** icons for field-level guidance."
+        "Complete all fields below for the most accurate prediction."
     )
 
     col1, col2, col3 = st.columns(3)
@@ -243,7 +242,7 @@ def render_input_form():
         )
 
         heart_rate = st.number_input(
-            "Resting Heart Rate (bpm)",
+            "Heart Rate (bpm)",
             min_value=40,
             max_value=150,
             value=72,
@@ -404,8 +403,7 @@ def main():
             </h1>
             <p style="color: #c5cae9; font-size: 1.05rem; margin: 0;">
                 Enter your lifestyle and health details to receive an AI-powered
-                assessment of your sleep health — powered by an XGBoost classifier
-                trained on real-world data.
+                assessment of your sleep health.
             </p>
         </div>
         """,
