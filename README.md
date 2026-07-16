@@ -161,9 +161,7 @@ Streamlit will open a browser tab at `http://localhost:8501` automatically.
 
 ## 🌐 Live Demo
 
-**Live Demo: https://your-streamlit-app-url.streamlit.app**
-
-> Replace the URL above after deploying to [Streamlit Community Cloud](https://streamlit.io/cloud).
+**Live Demo: https://sleep-health-predictor2208.streamlit.app/**
 
 ---
 
