@@ -442,23 +442,23 @@ def main():
             # np.issubdtype check inside the pickled ColumnTransformer.
             input_df = pd.DataFrame(
                 {
-                    "gender":                  pd.array([str(inputs["gender"])],             dtype="object"),
-                    "age":                     pd.array([int(inputs["age"])],                dtype="int64"),
-                    "occupation":              pd.array([str(inputs["occupation"])],          dtype="object"),
-                    "sleep_duration":          pd.array([float(inputs["sleep_duration"])],   dtype="float64"),
-                    "quality_of_sleep":        pd.array([int(inputs["quality_of_sleep"])],   dtype="int64"),
-                    "physical_activity_level": pd.array([int(inputs["physical_activity_level"])], dtype="int64"),
-                    "stress_level":            pd.array([int(inputs["stress_level"])],       dtype="int64"),
-                    "BMI_category":            pd.array([str(inputs["BMI_category"])],       dtype="object"),
-                    "heart_rate":              pd.array([int(inputs["heart_rate"])],         dtype="int64"),
-                    "daily_steps":             pd.array([int(inputs["daily_steps"])],        dtype="int64"),
-                    "systolic":                pd.array([int(inputs["systolic"])],           dtype="int64"),
-                    "dystolic":                pd.array([int(inputs["dystolic"])],           dtype="int64"),
+                    "gender":                  [gender],
+                    "age":                     [age],
+                    "occupation":              [occupation],
+                    "sleep_duration":          [sleep_duration],
+                    "quality_of_sleep":        [quality_of_sleep],
+                    "physical_activity_level": [physical_activity_level],
+                    "stress_level":            [stress_level],
+                    "BMI_category":            [bmi_category],
+                    "heart_rate":              [heart_rate],
+                    "daily_steps":             [daily_steps],
+                    "systolic":                [systolic],
+                    "dystolic":                [dystolic],
                 }
             )
 
             with st.spinner("Analysing your data…"):
-                prediction_idx = (model.predict(input_df)[0])
+                prediction_idx = int(model.predict(input_df)[0])
                 probabilities = model.predict_proba(input_df)[0]
 
             prediction_label = LABEL_MAP[prediction_idx]
