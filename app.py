@@ -316,7 +316,7 @@ def render_result(prediction_label: str, probabilities: np.ndarray):
             margin-top: 16px;
         ">
             <h2 style="color: {cfg['color']}; margin: 0 0 8px 0;">
-                {cfg['emoji']} Prediction: {prediction_label}
+                 Prediction: {prediction_label}
             </h2>
             <p style="color: #333; font-size: 1rem; margin: 0;">
                 {cfg['message']}
