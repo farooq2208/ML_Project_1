@@ -1,21 +1,6 @@
-# ─────────────────────────────────────────────────────────────────────────────
-# requirements.txt — Sleep Health Predictor
-# Pinned for reproducibility on Streamlit Community Cloud (Python 3.11+)
-# ─────────────────────────────────────────────────────────────────────────────
-
-# Web framework
-streamlit==1.46.0
-
-# Machine-learning stack (must match the environment used to train the model)
-scikit-learn==1.9.0
 xgboost==3.3.0
-
-# Data handling
-pandas==3.0.2
-numpy==2.4.4
-
-# Model serialisation
+streamlit==1.59.1
+pandas
+numpy
+scikit-learn==1.6.1
 joblib==1.5.3
-
-# Required by pandas >= 3.x for string-backed dtypes
-pyarrow==20.0.0
