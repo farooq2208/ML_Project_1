@@ -458,7 +458,7 @@ def main():
             )
 
             with st.spinner("Analysing your data…"):
-                prediction_idx = int(model.predict(input_df)[0])
+                prediction_idx = (model.predict(input_df)[0])
                 probabilities = model.predict_proba(input_df)[0]
 
             prediction_label = LABEL_MAP[prediction_idx]
