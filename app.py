@@ -108,20 +108,19 @@ def render_sidebar():
             ### About
             This application uses a **machine-learning model** trained on
             lifestyle and health data to predict the likelihood of a sleep
-            disorder.
-
-            ### How to use
-            1. Fill in your personal details in the main panel.
-            2. Click **Predict Sleep Health**.
-            3. Review your personalised result and confidence scores.
-
+            disorder.""")
+        st.markdown("---")
+        st.markdown(
+            """
             ### Prediction Classes
             | Class | Description |
             |-------|-------------|
             |  Healthy | No sleep disorder detected |
             |  Insomnia | Difficulty falling/staying asleep |
-            |  Sleep Apnea | Repeated breathing interruptions |
-
+            |  Sleep Apnea | Repeated breathing interruptions | """ )
+        st.markdown("---")
+        st.markdown(
+            """
             ### Disclaimer
             > This tool is for **informational purposes only** and does not
             > constitute medical advice. Always consult a qualified healthcare
@@ -141,7 +140,7 @@ def render_sidebar():
         )
 
         st.markdown("---")
-        st.caption("Built with [Streamlit](https://streamlit.io) ")
+        st.caption("Developed by: Farooq Hassnain Sheikh")
 
 
 # ── Input form ───────────────────────────────────────────────────────────────
