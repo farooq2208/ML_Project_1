@@ -96,10 +96,6 @@ def load_model():
 # ── Sidebar ──────────────────────────────────────────────────────────────────
 def render_sidebar():
     with st.sidebar:
-        st.image(
-            "https://img.icons8.com/fluency/96/sleeping-in-bed.png",
-            width=80,
-        )
         st.title("Sleep Health Predictor")
         st.markdown("---")
 
